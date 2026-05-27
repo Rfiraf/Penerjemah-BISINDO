@@ -1,0 +1,876 @@
+/* STYLE UNTUK HALAMAN MANAGEMENT ADMIN */
+
+/* Struktur dasar halaman management */
+.management-page {
+  min-height: 100vh;
+  background: var(--background-color);
+}
+
+.management-dashboard-header {
+  margin: 1rem 0 2rem 0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.management-dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.management-text-muted {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Dropdown untuk form management admin */
+.management-form-dropdown {
+  margin-bottom: 1.5rem;
+  background: var(--surface-color);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--border-color);
+  transition: border-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.management-form-dropdown.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2), 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.management-form-dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface-color);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.management-form-dropdown-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.management-form-dropdown-toggle.active {
+  background: var(--surface-color);
+  border-color: var(--primary-color);
+  color: var(--text-primary);
+}
+
+.management-form-dropdown-arrow {
+  font-size: 12px;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+  font-family: Arial, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.management-form-dropdown-toggle.active .management-form-dropdown-arrow {
+  transform: rotate(180deg);
+  color: var(--text-secondary);
+}
+
+.management-form-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--surface-color);
+  transition: max-height 0.4s ease-out;
+}
+
+.management-form-dropdown-content.active {
+  max-height: 1200px;
+}
+
+.management-form-dropdown-inner {
+  padding: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.management-form-dropdown-inner .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.management-form-dropdown-inner .form-label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.management-form-dropdown-inner .form-control {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.management-form-dropdown-inner .form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.management-form-dropdown-inner .btn {
+  width: 100%;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  border-radius: 10px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.management-form-dropdown-inner .btn:hover {
+  background: linear-gradient(135deg, #2979fa, #1e6fd9);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Tombol aksi untuk management */
+.management-action-buttons {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.management-action-btn {
+  padding: 8px 16px !important;
+  font-size: 0.85rem !important;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border: none;
+  min-height: 36px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.management-action-btn-primary {
+  background: var(--primary-color) !important;
+  color: white !important;
+}
+
+.management-action-btn-primary:hover {
+  background: linear-gradient(135deg, #2979fa, #1e6fd9) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+.management-action-btn-danger {
+  background: var(--error-color) !important;
+  color: white !important;
+}
+
+.management-action-btn-danger:hover {
+  background: #dc2626 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px var(--error-color);
+}
+
+/* Badge untuk role admin */
+.management-role-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: inline-block;
+  min-width: 70px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.management-role-admin {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--success-color);
+}
+
+.management-role-superadmin {
+  background: rgba(255, 107, 107, 0.2);
+  color: var(--error-color);
+  min-width: 100px;
+}
+
+.management-current-user-label {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Tabel untuk desktop */
+.management-desktop-table {
+  display: block;
+}
+
+.management-desktop-table .table-container {
+  overflow-x: auto;
+}
+
+.management-desktop-table .table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--border-color);
+  min-width: 320px;
+  table-layout: fixed;
+}
+
+.management-desktop-table .table th:nth-child(1),
+.management-desktop-table .table td:nth-child(1) {
+  width: 65.78px;
+}
+
+.management-desktop-table .table th:nth-child(2),
+.management-desktop-table .table td:nth-child(2) {
+  width: 180px;
+}
+
+.management-desktop-table .table th:nth-child(3),
+.management-desktop-table .table td:nth-child(3) {
+  width: 120px;
+}
+
+.management-desktop-table .table th:nth-child(4),
+.management-desktop-table .table td:nth-child(4) {
+  width: 180.08px;
+}
+
+.management-desktop-table .table th:nth-child(5),
+.management-desktop-table .table td:nth-child(5) {
+  width: 186.44px;
+}
+
+.management-desktop-table .table th,
+.management-desktop-table .table td {
+  padding: 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  vertical-align: middle;
+}
+
+.management-desktop-table .table th {
+  background: var(--background-color);
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+/* Accordion untuk tampilan mobile */
+.management-mobile-accordion {
+  display: none;
+}
+
+.management-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.management-accordion-item {
+  background: var(--surface-color);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.management-accordion-item.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+.management-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  background: var(--surface-color);
+  transition: background 0.2s;
+}
+
+.management-accordion-header:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.management-accordion-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.management-accordion-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.management-accordion-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.management-accordion-toggle {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  min-width: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.management-accordion-item.active .management-accordion-toggle {
+  transform: rotate(180deg);
+}
+
+.management-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.management-accordion-item.active .management-accordion-content {
+  max-height: 500px;
+}
+
+.management-accordion-details {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.management-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.25rem 0;
+}
+
+.management-detail-label {
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  min-width: 120px;
+}
+
+.management-detail-value {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  text-align: right;
+  flex: 1;
+  word-break: break-word;
+}
+
+.management-accordion-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.25rem;
+}
+
+/* Statistik management */
+.management-stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+  min-width: 320px;
+}
+
+.management-stat-card {
+  flex: 1;
+  min-width: 250px;
+  background: var(--surface-color);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.management-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary-color);
+}
+
+.management-stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: var(--primary-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.management-stat-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Modal untuk edit admin */
+.management-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.management-modal-content {
+  background: var(--surface-color);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 2px solid var(--border-color);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.management-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.management-modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.management-modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.management-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.management-modal-body {
+  padding: 2rem;
+}
+
+.management-modal-body .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.management-modal-body .form-label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.management-modal-body .form-control {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.management-modal-body .form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.management-modal-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.management-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Dropdown kustom untuk modal */
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-select-trigger:hover {
+  border-color: var(--primary-color);
+}
+
+.custom-select-trigger.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.custom-select-arrow {
+  font-size: 12px;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-select-trigger.active .custom-select-arrow {
+  transform: rotate(180deg);
+}
+
+.custom-options {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background: var(--surface-color);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 100;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.custom-options.active {
+  max-height: 300px;
+  opacity: 1;
+  visibility: visible;
+  overflow-y: auto;
+}
+
+.custom-option {
+  padding: 1rem 1.25rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.custom-option:last-child {
+  border-bottom: none;
+}
+
+.custom-option:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-color);
+}
+
+.custom-option.selected {
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* RESPONSIVE UNTUK HALAMAN MANAGEMENT */
+
+/* Tablet - 930px ke bawah */
+@media (max-width: 930px) {
+  .management-desktop-table {
+    display: none;
+  }
+
+  .management-mobile-accordion {
+    display: block;
+  }
+
+  .management-action-btn {
+    padding: 10px 12px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .management-action-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .management-accordion-actions .management-action-buttons {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .management-accordion-actions .management-action-btn {
+    flex: 1;
+  }
+}
+
+/* Tablet kecil - 768px ke bawah */
+@media (max-width: 768px) {
+  .management-action-btn {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    min-height: 42px;
+  }
+
+  .management-form-dropdown {
+    margin-bottom: 1.25rem;
+    border-radius: 10px;
+  }
+
+  .management-form-dropdown-toggle {
+    padding: 1rem 1.25rem;
+    font-size: 1.05rem;
+  }
+
+  .management-form-dropdown-inner {
+    padding: 1.5rem;
+  }
+
+  .management-form-dropdown-inner .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .management-form-dropdown-inner .form-label {
+    font-size: 0.95rem;
+  }
+
+  .management-form-dropdown-inner .form-control,
+  .management-form-dropdown-inner .custom-select-trigger {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+
+  .management-form-dropdown-inner .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+
+  .management-modal-content {
+    max-width: 95%;
+    max-height: 85vh;
+  }
+
+  .management-modal-header,
+  .management-modal-body,
+  .management-modal-footer {
+    padding: 1.25rem;
+  }
+}
+
+/* Desktop/Tablet - 931px ke atas */
+@media (min-width: 931px) {
+  .management-desktop-table {
+    display: block;
+  }
+
+  .management-mobile-accordion {
+    display: none;
+  }
+}
+
+/* Pesan untuk management page */
+.management-message {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.management-message.success {
+  background: #d1e7dd;
+  color: #0f5132;
+  border-color: #badbcc;
+}
+
+.management-message.warning {
+  background: #fff3cd;
+  color: #856404;
+  border-color: #ffeaa7;
+}
+
+.management-message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Header selamat datang di management */
+.management-welcome {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--surface-color);
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+}
+
+.management-welcome h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.management-welcome .management-text-muted {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Perbaikan tombol di tabel management */
+.management-table-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 70px !important;
+  padding: 6px 12px !important;
+  font-size: 0.85rem !important;
+  border-radius: 4px !important;
+}
+
+/* Perbaikan untuk autocomplete di form management */
+.management-form input:-webkit-autofill,
+.management-form input:-webkit-autofill:hover,
+.management-form input:-webkit-autofill:focus,
+.management-form textarea:-webkit-autofill,
+.management-form textarea:-webkit-autofill:hover,
+.management-form textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-primary);
+  -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 460px) {
+  .management-dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .management-text-muted {
+    font-size: 0.8rem;
+  }
+
+  .management-role-badge {
+    padding: 2px 4px;
+    min-width: 40px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .management-role-badge {
+    padding: 2px 4px;
+    font-size: 0.6rem;
+  }
+
+  .management-text-muted {
+    font-size: 0.8rem;
+  }
+
+  .management-detail-row {
+    gap: 1rem;
+    padding: 0.25rem 0;
+  }
+
+  .management-detail-label {
+    font-size: 0.9rem;
+    min-width: 0px;
+    max-width: 30px;
+  }
+
+  .management-detail-value {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 360px) {
+  .management-dashboard-header h1 {
+    font-size: 1.7rem;
+  }
+}

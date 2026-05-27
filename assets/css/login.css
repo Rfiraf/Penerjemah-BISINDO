@@ -1,0 +1,159 @@
+/* STYLE UNTUK HALAMAN LOGIN */
+
+/* Body halaman login */
+.login-body {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Container utama untuk form login */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+  margin-top: 30px;
+}
+
+/* Kartu utama untuk form login */
+.login-card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Efek gradien border untuk kartu login */
+.login-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--primary-color), var(--darkblue));
+  border-radius: 14px;
+  z-index: -1;
+}
+
+/* Judul halaman login */
+.login-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--darkblue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Gaya khusus untuk form login */
+.login-card .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.login-card .form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.login-card .form-control {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-card .form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Tombol login */
+.login-card .btn {
+  width: 100%;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-card .btn:hover {
+  background: linear-gradient(135deg, #2979fa, #1e6fd9);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px var(--button-color);
+}
+
+/* Link tambahan di halaman login */
+.login-links {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.login-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-links a:hover {
+  color: var(--darkblue);
+  text-decoration: underline;
+}
+
+/* Pesan untuk halaman login */
+.login-message {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.login-message.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error-color);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.login-message.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Footer untuk halaman login */
+.login-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE UNTUK HALAMAN LOGIN */
+
+/* Tablet kecil - 768px ke bawah */
+@media (max-width: 768px) {
+  .login-title {
+    font-size: 1.5rem;
+  }
+}

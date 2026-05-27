@@ -1,0 +1,387 @@
+/* File: assets/css/index.css */
+/* STYLE UNTUK HALAMAN TRANSLATOR */
+
+/* BAGIAN 1: LAYOUT UTAMA TRANSLATOR */
+.translator-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+  max-width: 1200px;
+}
+
+.translator-input-section,
+.translator-output-section {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.translator-input-section {
+  height: 460.23px;
+}
+
+.translator-input-section::before,
+.translator-output-section::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 14px;
+  z-index: -1;
+}
+
+.translator-input-section::before {
+  background: var(--primary-color);
+}
+
+.translator-output-section::before {
+  background: var(--darkblue);
+}
+
+.translator-input-section::after,
+.translator-output-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--surface-color);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.translator-input-section textarea.form-control {
+  resize: none;
+  flex-grow: 1;
+  min-height: 150px;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.translator-input-section textarea.form-control:focus {
+  outline: none;
+  border-color: var(--darkblue);
+}
+
+/* BAGIAN 2: GRID HASIL TERJEMAHAN */
+.translator-results-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-grow: 1;
+  align-content: start;
+}
+
+.translator-results-grid.single-item {
+  display: flex;
+  justify-content: center;
+}
+
+.translator-results-grid.single-item .translator-result-card {
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+}
+
+.translator-results-grid.two-items {
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.translator-results-grid.three-items {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.translator-results-grid.multiple-items {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+/* BAGIAN 3: KARTU HASIL TERJEMAHAN */
+.translator-result-card {
+  background: var(--surface-color);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  aspect-ratio: 1/1;
+  max-height: 300px;
+}
+
+.translator-result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  border-color: var(--primary-color);
+}
+
+.translator-media-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-color);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  border-radius: 8px;
+}
+
+.translator-result-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.translator-media-container video.translator-result-media {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.translator-result-label {
+  text-align: center;
+  font-weight: 600;
+  background: var(--surface-color);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  border-top: 2px solid var(--border-color);
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* BAGIAN 4: ELEMEN PENDUKUNG */
+.placeholder-text {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-style: italic;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background: var(--surface-color);
+  border-radius: 8px;
+  border: 2px dashed var(--border-color);
+}
+
+.section-title {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 0.8rem;
+}
+
+.translator-input-section .section-title {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.translator-output-section .section-title {
+  border-bottom: 2px solid var(--darkblue);
+}
+
+/* BAGIAN 5: STYLE UNTUK VIDEO HANDLING */
+.video-error-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.video-error-overlay div {
+  text-align: center;
+  padding: 20px;
+}
+
+.video-error-overlay button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+}
+
+.video-error-overlay button:hover {
+  background: #0056b3;
+}
+
+/* Video Loading Styles */
+.video-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #2196f3;
+  margin: 0 auto 10px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* BAGIAN 6: RESPONSIVE DESIGN */
+@media (max-width: 980px) and (min-width: 769px) {
+  .translator-results-grid.three-items {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .translator-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .translator-results-grid.three-items {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .translator-results-grid.multiple-items {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .translator-input-section,
+  .translator-output-section {
+    padding: 1.5rem;
+    min-height: 300px;
+    border-radius: 10px;
+  }
+
+  .translator-input-section textarea.form-control {
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 640px) and (min-width: 481px) {
+  .translator-results-grid.three-items {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .translator-results-grid.multiple-items {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .translator-results-grid.single-item,
+  .translator-results-grid.two-items {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Untuk multi-item (2,3,multiple) - CENTER */
+  .translator-results-grid,
+  .translator-results-grid.two-items,
+  .translator-results-grid.three-items,
+  .translator-results-grid.multiple-items {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 300px; /* BATASI LEBAR MAX */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* KHUSUS UNTUK SINGLE ITEM */
+  .translator-results-grid.single-item {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    grid-template-columns: none !important;
+  }
+
+  .translator-results-grid.single-item .translator-result-card {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .translator-input-section,
+  .translator-output-section {
+    padding: 1rem;
+    min-height: 300px;
+  }
+
+  .translator-input-section textarea.form-control {
+    min-height: 100px;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .translator-result-label {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
+}
